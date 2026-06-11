@@ -11,6 +11,31 @@ A production-grade self-healing infrastructure that automatically detects and re
 
 ---
 
+## 🏗️ Architecture
+
+![Architecture](images/self-healing-proj-infra.png)
+
+---
+
+## 📸 Screenshots
+
+### Prometheus Alert Rules
+![Prometheus Alerts](images/prometheus-alerts.png)
+
+### Prometheus Targets (3 pods being scraped)
+![Prometheus Targets](images/prometheus-targets.png)
+
+### Grafana Dashboard
+![Grafana Dashboard](images/grafana-dashboard.png)
+
+### Auto-Healer in Action
+![Healer](images/self-healing-demo.png)
+
+### Pod Self-Healing (kubectl restarts)
+![kubectl Restarts](images/kubectl-restarts.png)
+
+---
+
 ## ✨ Features
 
 - **Failure Simulation** — Trigger crashes, memory leaks, CPU stress on demand
