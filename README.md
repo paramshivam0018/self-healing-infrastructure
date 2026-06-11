@@ -54,7 +54,7 @@ System restored — zero human intervention
 ---
 
 ## 📁 Project Structure
-
+```
 self-healing-infrastructure/
 ├── app/
 │   ├── main.py              # FastAPI app with failure simulation
@@ -69,7 +69,7 @@ self-healing-infrastructure/
 │   └── grafana-dashboard.yaml # Custom Grafana dashboard
 └── scripts/
 └── healer.py            # Auto-remediation script
-
+```
 ---
 
 ## 🚀 Quick Start
