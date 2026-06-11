@@ -1,0 +1,51 @@
+2026-06-11 21:03:08,188 [INFO] 🚀 Auto-Healer started — monitoring every 10s
+2026-06-11 21:03:08,188 [INFO] 📍 Watching: http://192.168.49.2:30080
+2026-06-11 21:03:08,188 [INFO] ⚙️  Thresholds — CPU: 80.0% | Memory: 85.0%
+2026-06-11 21:03:08,188 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:03:08,188 [INFO] 🔍 Check cycle #1
+2026-06-11 21:03:08,345 [INFO] ✅ App health: OK
+2026-06-11 21:03:08,452 [INFO] 📊 CPU: 51.3% | Memory: 66.9% (5166.22MB)
+2026-06-11 21:03:08,452 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:03:18,454 [INFO] 🔍 Check cycle #2
+2026-06-11 21:03:18,603 [INFO] ✅ App health: OK
+2026-06-11 21:03:18,716 [INFO] 📊 CPU: 68.4% | Memory: 66.2% (5109.09MB)
+2026-06-11 21:03:18,717 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:03:28,717 [INFO] 🔍 Check cycle #3
+2026-06-11 21:03:28,868 [INFO] ✅ App health: OK
+2026-06-11 21:03:28,980 [INFO] 📊 CPU: 90.2% | Memory: 66.7% (5146.36MB)
+2026-06-11 21:03:28,981 [WARNING] 🔥 High CPU detected: 90.2% — scaling up!
+2026-06-11 21:03:28,981 [INFO] 📈 Scaling deployment to 3 replicas
+2026-06-11 21:03:29,230 [INFO] ✅ Scaled to 3 replicas to handle CPU load
+2026-06-11 21:03:29,231 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:03:39,264 [INFO] 🔍 Check cycle #4
+2026-06-11 21:03:39,379 [WARNING] ⚠️  Unhealthy pod detected: self-healing-app-889854554-x8vkh — Reason: pod not ready
+2026-06-11 21:03:39,380 [WARNING] 🔄 Restarting pod: self-healing-app-889854554-x8vkh
+2026-06-11 21:03:41,850 [INFO] ✅ Pod self-healing-app-889854554-x8vkh deleted — Kubernetes will recreate it
+2026-06-11 21:03:41,850 [INFO] 🏥 Remediation complete for self-healing-app-889854554-x8vkh
+2026-06-11 21:03:41,870 [INFO] ✅ App health: OK
+2026-06-11 21:03:41,980 [INFO] 📊 CPU: 79.5% | Memory: 68.4% (5280.45MB)
+2026-06-11 21:03:41,981 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:03:51,981 [INFO] 🔍 Check cycle #5
+2026-06-11 21:03:52,114 [WARNING] ❌ App health check failed!
+2026-06-11 21:03:52,220 [INFO] 📊 CPU: 42.5% | Memory: 68.1% (5258.52MB)
+2026-06-11 21:03:52,220 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:04:02,220 [INFO] 🔍 Check cycle #6
+2026-06-11 21:04:02,354 [WARNING] ⚠️  Unhealthy pod detected: self-healing-app-889854554-x66hg — Reason: pod not ready
+2026-06-11 21:04:02,354 [WARNING] 🔄 Restarting pod: self-healing-app-889854554-x66hg
+2026-06-11 21:04:34,226 [INFO] ✅ Pod self-healing-app-889854554-x66hg deleted — Kubernetes will recreate it
+2026-06-11 21:04:34,226 [INFO] 🏥 Remediation complete for self-healing-app-889854554-x66hg
+2026-06-11 21:04:34,233 [INFO] ✅ App health: OK
+2026-06-11 21:04:34,339 [INFO] 📊 CPU: 57.9% | Memory: 68.5% (5290.52MB)
+2026-06-11 21:04:34,340 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:04:44,341 [INFO] 🔍 Check cycle #7
+2026-06-11 21:04:44,524 [INFO] ✅ App health: OK
+2026-06-11 21:04:44,631 [INFO] 📊 CPU: 43.6% | Memory: 69.1% (5333.15MB)
+2026-06-11 21:04:44,631 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:04:54,631 [INFO] 🔍 Check cycle #8
+2026-06-11 21:04:54,720 [INFO] ✅ App health: OK
+2026-06-11 21:04:54,825 [INFO] 📊 CPU: 50.0% | Memory: 68.5% (5290.53MB)
+2026-06-11 21:04:54,825 [INFO] ────────────────────────────────────────────────────────────
+2026-06-11 21:05:04,825 [INFO] 🔍 Check cycle #9
+2026-06-11 21:05:05,008 [INFO] ✅ App health: OK
+2026-06-11 21:05:05,115 [INFO] 📊 CPU: 62.5% | Memory: 69.0% (5330.64MB)
+2026-06-11 21:05:05,116 [INFO] ────────────────────────────────────────────────────────────
