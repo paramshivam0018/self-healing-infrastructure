@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: self-healing-dashboard
+  namespace: monitoring
+  labels:
+    grafana_dashboard: "1"
+data:
+  self-healing-dashboard.json: |
+    {
+      "title": "Self-Healing Infrastructure Dashboard",
+      "uid": "self-healing",
+      "panels": [
+        {
+          "title": "HTTP Requests Rate",
+          "type": "graph",
+          "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+          "targets": [{
+            "expr": "rate(http_requests_total[5m])",
+            "legendFormat": "{{handler}} - {{method}}"
+          }]
+        },
+        {
+          "title": "Pod Restart Count",
+          "type": "stat",
+          "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+          "targets": [{
+            "expr": "kube_pod_container_status_restarts_total{namespace='default'}",
+            "legendFormat": "{{pod}}"
+          }]
+        },
+        {
+          "title": "Pod Ready Status",
+          "type": "stat",
+          "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+          "targets": [{
+            "expr": "kube_pod_status_ready{namespace='default', condition='true'}",
+            "legendFormat": "{{pod}}"
+          }]
+        },
+        {
+          "title": "HTTP Request Duration",
+          "type": "graph",
+          "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+          "targets": [{
+            "expr": "rate(http_request_duration_seconds_sum[5m]) / rate(http_request_duration_seconds_count[5m])",
+            "legendFormat": "{{handler}}"
+          }]
+        }
+      ],
+      "refresh": "10s",
+      "time": {"from": "now-30m", "to": "now"}
+    }
