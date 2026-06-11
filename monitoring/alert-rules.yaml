@@ -1,0 +1,66 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: self-healing-alerts
+  namespace: monitoring
+  labels:
+    release: monitoring
+spec:
+  groups:
+  - name: self-healing-app
+    interval: 30s
+    rules:
+
+    - alert: AppDown
+      expr: up{job="self-healing-app"} == 0
+      for: 30s
+      labels:
+        severity: critical
+      annotations:
+        summary: "Self-healing app is DOWN"
+        description: "The self-healing app has been down for more than 30 seconds."
+
+    - alert: HighPodRestarts
+      expr: kube_pod_container_status_restarts_total{namespace="default"} > 3
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Pod restarting too frequently"
+        description: "Pod {{ $labels.pod }} has restarted {{ $value }} times."
+
+    - alert: PodNotReady
+      expr: kube_pod_status_ready{namespace="default", condition="true"} == 0
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: "Pod not ready"
+        description: "Pod {{ $labels.pod }} has been not ready for 1 minute."
+
+    - alert: HighMemoryUsage
+      expr: container_memory_usage_bytes{namespace="default"} / container_spec_memory_limit_bytes{namespace="default"} > 0.85
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High memory usage detected"
+        description: "Container {{ $labels.container }} is using more than 85% memory."
+
+    - alert: HighCPUUsage
+      expr: rate(container_cpu_usage_seconds_total{namespace="default"}[5m]) > 0.8
+      for: 2m
+      labels:
+        severity: warning
+      annotations:
+        summary: "High CPU usage detected"
+        description: "Container {{ $labels.container }} CPU usage is above 80%."
+
+    - alert: DeploymentReplicasMismatch
+      expr: kube_deployment_spec_replicas{namespace="default"} != kube_deployment_status_available_replicas{namespace="default"}
+      for: 2m
+      labels:
+        severity: critical
+      annotations:
+        summary: "Deployment replicas mismatch"
+        description: "Deployment {{ $labels.deployment }} has {{ $value }} unavailable replicas."
